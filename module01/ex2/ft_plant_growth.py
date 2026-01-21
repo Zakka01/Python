@@ -14,7 +14,7 @@ class Plant:
 		print(f"{self.name} : {self.height}cm, {self.Age} days old")
 
 
-def	growth_status():
+def	week_simulation():
 	Plant_1 = Plant("Rose", 25, 30)
 	day = 1
 	height_before = Plant_1.height
@@ -33,4 +33,4 @@ def	growth_status():
 	print(f"Growth this week: +{growth}cm")
 
 if __name__ == "__main__":
-	growth_status()
+	week_simulation()
