@@ -1,12 +1,12 @@
 class Plant:
-	def __init__(self, name, height, Age):
+	def	__init__(self, name, height, Age):
 		self.name = name
 		self.height = height
 		self.Age = Age
 
-	def get_info(self):
+	def	get_info(self):
 		print(f"Created: {self.name} ({self.height}cm, {self.Age} days)")
-  
+
 def	Factory():
 	i = 0
 	while i < len(plants):

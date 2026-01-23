@@ -1,18 +1,17 @@
 class Plant:
-	def __init__(self, name, height, Age):
-		self.name = name
-		self.height = height
-		self.Age = Age
-  
-	def grow(self):
-		self.height += 1
+    def	__init__(self, name, height, Age):
+        self.name = name
+        self.height = height
+        self.Age = Age
 
-	def age(self):
-		self.Age += 1
+    def grow(self):
+        self.height += 1
 
-	def get_info(self):
-		print(f"{self.name} : {self.height}cm, {self.Age} days old")
+    def age(self):
+        self.Age += 1
 
+    def get_info(self):
+        print(f"{self.name} : {self.height}cm, {self.Age} days old")
 
 def	week_simulation():
 	Plant_1 = Plant("Rose", 25, 30)
