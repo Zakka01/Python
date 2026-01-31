@@ -109,7 +109,7 @@ class GardenManager:
     
 
 if __name__ == "__main__":
-    print("=== Garden Management System Demo ===\n")
+    print("== Garden Management System Demo ==\n")
     
     alice = Garden("Alice")
     bob = Garden("Bob")
