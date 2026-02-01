@@ -3,20 +3,16 @@ class Plant:
         self.name = name
         self.height = height
         self.Age = Age
-
     def grow(self):
         self.height += 1
-
     def age(self):
         self.Age += 1
-
     def get_info(self):
         print(f"{self.name} : {self.height}cm, {self.Age} days old")
 
 def	week_simulation(plants):
 	i = 0
 	while i < len(plants):
-		print(f"\n | Garden Plant Registry for '{plants[i].name}'\n")
 		day = 1
 		height_before = plants[i].height
 		while day <= 7:
@@ -35,7 +31,7 @@ def	week_simulation(plants):
 if __name__ == "__main__":
     plants = [
 		Plant("Rose", 25, 30),
-		Plant("flower", 15, 45),
-		Plant("tree", 450, 120)
+		# Plant("flower", 15, 45),
+		# Plant("tree", 450, 120)
 	]
     week_simulation(plants)
