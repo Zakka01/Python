@@ -30,5 +30,5 @@ if __name__ == "__main__":
     plant = SecurePlant()
     plant.set_age(20)
     plant.set_height(12)
-    plant.set_height(-2)
+    plant.set_height(-2)    
     plant.get_info()
