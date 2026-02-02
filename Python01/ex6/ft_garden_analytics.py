@@ -2,9 +2,11 @@ class Garden:
     def __init__(self, owner_name):
         self.owner_name = owner_name
         self.plants = [] 
+
     def add_plant(self, plant):
         self.plants.append(plant)
         print(f"Added {plant.name} to {self.owner_name}'s garden")
+        
     def grow_all(self, plants):
         i = 0
         print(f"\n{self.owner_name} is helping all plants grow...")
@@ -12,6 +14,7 @@ class Garden:
             plants[i].grow()
             print(f"{plants[i].name} grew 1cm")
             i += 1
+            
     def report(self, plants):
         i = 0
         print(f"\n=== {self.owner_name}'s Garden Report ===")
@@ -117,14 +120,11 @@ if __name__ == "__main__":
     oak = Plant("Oak Tree", 100, 5)
     rose = FloweringPlant("Rose", 25, 2, "red")
     sunflower = PrizeFlower("Sunflower", 50, 3, "yellow", 10)
-    warda = PrizeFlower("werda 7amra", 40, 5, "white", 80)
 
     alice.add_plant(oak)
     alice.add_plant(rose)
     alice.add_plant(sunflower)
     
-    bob.add_plant(warda)
-
     alice.grow_all(alice.plants)
 
     alice.report(alice.plants)
@@ -136,7 +136,6 @@ if __name__ == "__main__":
     stats = GardenManager.GardenStats(alice)
     
 
-    # stats = GardenManager.GardenStats(alice)
     print(f"\nPlants added: {stats.plants_count()}, Total growth: {stats.total_growth()}")
     print("Plant types:", stats.plant_types_count())
     
