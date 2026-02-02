@@ -99,7 +99,7 @@ class GardenManager:
                 else:
                     regular += 1
                 i += 1
-            return f"{regular} regular, {flowering} flowering, {prize} prize flowers"\
+            return f"{regular} regular, {flowering} flowering, {prize} prize flowers"
         
         def valid_height(self):
             i = 0
@@ -128,7 +128,6 @@ if __name__ == "__main__":
     alice.grow_all(alice.plants)
 
     alice.report(alice.plants)
-    bob.report(bob.pla)
 
     manager = GardenManager()
     manager.gardens.append(alice)
