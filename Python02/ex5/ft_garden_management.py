@@ -9,4 +9,4 @@ class GardenManager:
         print(f"Watering {plant} - success")
     
     def check_plant_health(self, plant):
-        cd ..
+        pass
