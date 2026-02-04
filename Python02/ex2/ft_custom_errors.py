@@ -36,5 +36,6 @@ def simulate():
             print(f"Caught a garden error: {e}")
         
     print("\nAll custom error types work correctly!")
-        
-simulate()
+   
+if __name__ == "__main__":     
+    simulate()
