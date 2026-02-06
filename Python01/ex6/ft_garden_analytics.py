@@ -1,9 +1,9 @@
 class Garden:
-    def __init__(self, owner_name):
+    def __init__(self, owner_name: str):
         self.owner_name = owner_name
         self.plants = []
 
-    def add_plant(self, plant):
+    def add_plant(self, plant: str):
         self.plants.append(plant)
         print(f"Added {plant.name} to {self.owner_name}'s garden")
 
@@ -21,7 +21,7 @@ class Garden:
 
 
 class Plant:
-    def __init__(self, name, height, age):
+    def __init__(self, name: str, height: int, age: int):
         self.name = name
         self.__height = height
         self.__age = age
@@ -40,7 +40,7 @@ class Plant:
 
 
 class FloweringPlant(Plant):
-    def __init__(self, name, height, age, color):
+    def __init__(self, name: str, height: int, age: int, color: str):
         super().__init__(name, height, age)
         self.color = color 
 
@@ -49,7 +49,7 @@ class FloweringPlant(Plant):
 
 
 class PrizeFlower(FloweringPlant):
-    def __init__(self, name, height, age, color, prize_points):
+    def __init__(self, name: str, height: int, age: int, color: str, prize_points: int):
         super().__init__(name, height, age, color)
         self.prize_points = prize_points
 
@@ -83,7 +83,7 @@ class GardenManager:
         return cls()
 
     @staticmethod
-    def validate_owner_name(name):
+    def validate_owner_name(name: str):
         return isinstance(name, str) and len(name.strip()) > 0
 
     class GardenStats:

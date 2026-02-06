@@ -1,11 +1,11 @@
 class Plant:
-	def	__init__(self, name, height, Age):
+	def	__init__(self, name: str, height: int, age: int):
 		self.name = name
 		self.height = height
-		self.Age = Age
+		self.age = age
 
 	def	get_info(self):
-		print(f"Created: {self.name} ({self.height}cm, {self.Age} days)")
+		print(f"Created: {self.name} ({self.height}cm, {self.age} days)")
 
 def	Factory():
 	i = 0
