@@ -1,35 +1,40 @@
 class Plant:
-    def	__init__(self, name: str, height: int, Age: int):
+    def __init__(self, name: str, height: int, age: int):
         self.name = name
         self.height = height
-        self.Age = Age
+        self.age = age
 
     def grow(self):
         self.height += 1
 
-    def age(self):
-        self.Age += 1
+    def Age(self):
+        self.age += 1
 
     def get_info(self):
-        print(f"{self.name} : {self.height}cm, {self.Age} days old")
+        print(f"{self.name} : {self.height}cm, {self.age} days old")
 
-def	week_simulation():
-	Plant_1 = Plant("Rose", 25, 30)
-	day = 1
-	height_before = Plant_1.height
- 
-	while day <= 7:
-		if day == 1 or day == 7:
-			print(f"=== Day {day} ===")
-			Plant_1.get_info()
-		if day != 7:
-			Plant_1.age()
-			Plant_1.grow()
-		day += 1
 
-	height_after = Plant_1.height
-	growth = height_after - height_before
-	print(f"Growth this week: +{growth}cm")
+def week_simulation():
+    plants = [
+        Plant("Rose", 25, 30)
+        # Plant("Tulip", 15, 20),
+        # Plant("Daisy", 10, 15)
+    ]
+
+    print("=== Day 1 ===")
+    for i in range(len(plants)):
+        plants[i].get_info()
+
+    for day in range(1, 7):
+        for plant in plants:
+            plant.grow()
+            plant.Age()
+
+    print("=== Day 7 ===")
+    for i in range(len(plants)):
+        plants[i].get_info()
+        print("Growth this week: +6cm")
+
 
 if __name__ == "__main__":
-	week_simulation()
+    week_simulation()
