@@ -1,15 +1,11 @@
 class GardenError(Exception):
-    def __init__(self, message):
-        super().__init__(message)        
+    pass      
 
 class PlantError(GardenError):
-    def __init__(self, message):
-        super().__init__(message)
-
+    pass      
 
 class WaterError(GardenError):
-    def __init__(self, message):
-        super().__init__(message)
+    pass
         
 
 def simulate():

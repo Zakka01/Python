@@ -12,7 +12,7 @@ class GardenManager:
     def __init__(self):
         self.gardens = []
         
-    def add_plant(self, plant):
+    def add_plant(self, plant: str):
         try:
             if plant == "" or plant == None:
                 raise PlantError("Plant name cannot be empty!")
@@ -23,13 +23,13 @@ class GardenManager:
             print(f"Error adding plant: {e}")
     
     
-    def water_plant(self, plant):
+    def water_plant(self, plant: str):
         if plant not in self.gardens:
             raise WaterError(f"Plant '{plant}' not found in garden!") 
         print(f"Watering {plant} - success")
 
     
-    def check_plant_health(self, plant, water_amount, sunlight_hours):
+    def check_plant_health(self, plant: str, water_amount: int, sunlight_hours: int):
         try:
             if water_amount < 1:
                 raise WaterError(f"Water level {water_amount} is too low (min 1)")
