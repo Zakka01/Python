@@ -72,7 +72,6 @@ def analysis():
     top_player = players[top_index]
     top_achievement = achievements[top_player]
     print(f"Top performer: {top_player} ({top_score} points, {top_achievement} achievements)")
-    
 
 def main():
     print("=== Game Analytics Dashboard ===\n")
