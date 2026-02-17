@@ -17,5 +17,5 @@ def command_quest():
         
 if __name__ == "__main__":
     print("=== Command Quest ===")
-    command_quest()  
+    command_quest()
     

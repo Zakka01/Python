@@ -42,19 +42,22 @@ def statistics(elements: dict):
     print(f"Least abundant: {min_key} ({min_value} {unit_word2})")
 
 def item_categories(elements: dict):
-    moderate = {}
-    scarce = {}
+    categories = {
+        'moderate' : {},  
+        'scarce' : {}
+    }
     max_key, max_value = None, -1
     for key, value in elements.items():
         if value > max_value:
             max_key, max_value = key, value
+
     for key, value in elements.items():
-        if value >= max_value:
-            moderate[max_key] = max_value
+        if value == max_value:
+            categories['moderate'][key] = value
         else:
-            scarce[key] = value
-    print(f"Moderate: {moderate}")
-    print(f"Scarce: {scarce}")
+            categories['scarce'][key] = value
+    print(f"Moderate: {categories['moderate']}")
+    print(f"Scarce: {categories['scarce']}")
 
 def stock_management(elements: dict):
     restock = []
@@ -92,8 +95,6 @@ def inventory_system():
     print(*elements.keys(), sep=", ")
     print("Dictionary values:", end=" ")
     print(*elements.values(), sep=", ")
-    
-    print()
     print(f"Sample lookup - 'sword' in inventory: {"sword" in elements}")
     
 if __name__ == "__main__":
