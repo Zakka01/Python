@@ -1,8 +1,5 @@
 import math
 
-def get_coordinates(x: int, y: int, z:int):
-    return (x, y, z)
-
 def parse_coordinates(coors: str):
     try:
         a, b, c = coors.split(",")
@@ -26,8 +23,8 @@ def unpacking(coors: tuple):
     print(f"Coordinates: X={coors[0]}, Y={coors[1]}, Z={coors[2]}")
 
 def coordinate_system():
-    coordinates_one = get_coordinates(0, 0, 0)
-    coordinates_two = get_coordinates(10, 20, 5)
+    coordinates_one = tuple(0, 0, 0)
+    coordinates_two = tuple(10, 20, 5)
     
     print(f"Position created: {coordinates_two}")
     distance_formula(coordinates_one, coordinates_two)

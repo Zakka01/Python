@@ -18,7 +18,6 @@ def score_analytics():
     else:
         print("No scores provided. Usage: python3 ft_score_analytics.py <score1> <score2> ...")
     
-    
 if __name__ == "__main__":
     print("=== Player Score Analytics ===")
     score_analytics()
