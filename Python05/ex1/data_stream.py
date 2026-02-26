@@ -53,8 +53,8 @@ class SensorStream(DataStream):
         # how many items this stream has processed
         self.processed_count += len(data_batch)
 
-        result = (f"Sensor analysis: {self.processed_count} readings processed, "
-                  f"avg temp: {avg_temp:.1f}°C")
+        result = (f"Sensor analysis: {self.processed_count} readings processed,"
+                  f" avg temp: {avg_temp:.1f}°C")
         return result
 
     def filter_data(self, data_batch: List[Any], criteria: Optional[str] = None) -> List[Any]:
