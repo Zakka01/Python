@@ -8,8 +8,6 @@ from collections import Counter, defaultdict, ChainMap, deque
 class ProcessingStage(Protocol):
     def process(self, data: Any) -> Any:
         ...
-                
-        
 
 # Concrete Stage Classes (implement ProcessingStage protocol)
 class InputStage:
