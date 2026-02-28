@@ -1,5 +1,5 @@
 from Card import Card
-from typing import Protocol
+
 
 class CreatureCard(Card):
     def __init__(self, name: str, cost: int, rarity: str, attack: int, health: int):
@@ -41,6 +41,7 @@ class CreatureCard(Card):
             }
         except AttributeError:
             return {"error": "Invalid target"}
+
 
     def get_card_info(self):
         info = super().get_card_info()
