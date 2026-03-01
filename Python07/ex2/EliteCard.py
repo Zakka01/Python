@@ -14,7 +14,6 @@ class EliteCard(Card, Combatable, Magical):
         self.mana_pool = mana_pool
         self.health = 10
 
-    # ----- Card behavior
     def play(self, game_state: dict) -> dict:
         if game_state["available_mana"] < self.cost:
             return {"error": "Not enough mana"}
@@ -27,7 +26,6 @@ class EliteCard(Card, Combatable, Magical):
             "effect": "Elite card enters battlefield"
         }
 
-    # ---------- COMBATABLE ----
     def attack(self, target) -> dict:
         return {
             "attacker": self.name,
@@ -55,7 +53,6 @@ class EliteCard(Card, Combatable, Magical):
             "health": self.health
         }
 
-    # ---------- MAGICAL ---
     def cast_spell(self, spell_name: str, targets: list) -> dict:
         mana_cost = 4
 
