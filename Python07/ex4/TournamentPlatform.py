@@ -35,11 +35,18 @@ class TournamentPlatform:
         self.matches.append(result)
         return result
 
-    def get_leaderboard(self) -> list:
-        sorted_cards = sorted(self.cards.items(), key=lambda x: x[1].rating, reverse=True)
-        leaderboard = []
 
-        for rank, (card_id, card) in enumerate(sorted_cards, 1):
+    def get_leaderboard(self) -> list:
+        all_cards = []
+        for card_id in self.cards:
+            card = self.cards[card_id]
+            all_cards.append((card.rating, card_id, card))
+
+        all_cards.sort(reverse=True)
+
+        leaderboard = []
+        rank = 1
+        for rating, card_id, card in all_cards:
             info = card.get_rank_info()
             leaderboard.append({
                 "rank": rank,
@@ -47,8 +54,10 @@ class TournamentPlatform:
                 "rating": info["rating"],
                 "record": info["record"],
             })
+            rank += 1
 
         return leaderboard
+
 
     def generate_tournament_report(self) -> dict:
         total_cards = len(self.cards)

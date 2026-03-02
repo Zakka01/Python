@@ -1,7 +1,7 @@
 from ex4.TournamentCard import TournamentCard
 from ex4.TournamentPlatform import TournamentPlatform
 
-print("'n=== DataDeck Tournament Platform ===\n")
+print("\n=== DataDeck Tournament Platform ===\n")
 
 print("Registering Tournament Cards...\n")
 dragon = TournamentCard("Fire Dragon", 5, "Legendary", 7, 5, 1200)

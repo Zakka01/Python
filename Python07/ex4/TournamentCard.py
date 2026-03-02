@@ -6,7 +6,7 @@ from ex4.Rankable import Rankable
 class TournamentCard(Card, Combatable, Rankable):
 
     def __init__(self, name: str, cost: int, rarity: str,
-                 attack_power: int, health: int, base_rating: int = 1200):
+                attack_power: int, health: int, base_rating: int):
         super().__init__(name, cost, rarity)
         self.attack_power = attack_power
         self.health = health
@@ -17,6 +17,7 @@ class TournamentCard(Card, Combatable, Rankable):
     def play(self, game_state: dict) -> dict:
         if game_state["available_mana"] < self.cost:
             return {"error": "Not enough mana"}
+
         game_state["available_mana"] -= self.cost
         return {
             "card_played": self.name,
@@ -36,6 +37,7 @@ class TournamentCard(Card, Combatable, Rankable):
         damage_blocked = min(self.attack_power, incoming_damage)
         damage_taken = incoming_damage - damage_blocked
         self.health -= damage_taken
+
         return {
             "defender": self.name,
             "damage_taken": damage_taken,
