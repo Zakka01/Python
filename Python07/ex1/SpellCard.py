@@ -1,5 +1,4 @@
 from ex0.Card import Card
-from ex0.CreatureCard import CreatureCard
 
 class SpellCard(Card):
     def __init__(self, name: str, cost: int, rarity: str, effect_type: str):

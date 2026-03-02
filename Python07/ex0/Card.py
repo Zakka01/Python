@@ -10,8 +10,8 @@ class Card(ABC):
     @abstractmethod
     def play(self, game_state: dict) -> dict:
         pass
-  
-      
+
+
     def get_card_info(self) -> dict:
         return {
             "name": self.name,

@@ -5,33 +5,36 @@ from ex3.GameEngine import GameEngine
 print("\n=== DataDeck Game Engine ===\n")
 print("Configuring Fantasy Card Game...")
 
-fantasy_card = FantasyCardFactory()
-aggrassive = AggressiveStrategy()
+factory = FantasyCardFactory()
+strategy = AggressiveStrategy()
 
-print(f"Factory: {fantasy_card.__class__.__name__}")
-print(f"Strategy: {aggrassive.get_strategy_name()}")
-print(f"Available types: {fantasy_card.get_supported_types()}")
+print(f"Factory: {factory.__class__.__name__}")
+print(f"Strategy: {strategy.get_strategy_name()}")
+print(f"Available types: {factory.get_supported_types()}")
 
 print()
 
 engine = GameEngine()
-engine.configure_engine(fantasy_card, aggrassive)
+engine.configure_engine(factory, strategy)
 
 print("Simulating aggressive turn...")
-hand = [f"{c.name} ({c.cost})" for c in engine.hand]
+hand = [f"{card.name} ({card.cost})" for card in engine.hand]
 print(f"Hand: {hand}")
 
 
 print()
 
 turn_result = engine.simulate_turn()
-print("Turn execution:", turn_result)
+print("Turn execution:")
+print(f"Strategy: {strategy.__class__.__name__}")
+print(f"actions: {turn_result}")
+
 
 
 print()
 
 
 report = engine.get_engine_status()
-print("Game Report:", report)
+print("Game Report: \n", report)
 
 print("\nAbstract Factory + Strategy Pattern: Maximum flexibility achieved!")

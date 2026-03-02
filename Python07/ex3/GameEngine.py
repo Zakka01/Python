@@ -6,6 +6,8 @@ class GameEngine:
         self.deck = []
         self.battlefield = []
         self.hand = []
+        self._last_turn_result = None
+        self.turns = 0
 
     def configure_engine(self, factory, strategy) -> None:
         self.factory = factory
@@ -19,13 +21,15 @@ class GameEngine:
         if not self.factory:
             raise ValueError("Factory not configured")
 
-        result = self.strategy.execute_turn(self.hand, self.battlefield)
-        return result
+        self._last_turn_result = self.strategy.execute_turn(self.hand, self.battlefield)
+        self.turns += 1
+        return self._last_turn_result
 
     def get_engine_status(self) -> dict:
+        damage = self._last_turn_result.get("damage_dealt", 0) if self._last_turn_result else 0
         return {
-            "turns_simulated": 1,
+            "turns_simulated": self.turns,
             "strategy_used": self.strategy.get_strategy_name(),
-            "total_damage": (result := self.strategy.execute_turn(self.hand, self.battlefield)),
-            "cards_created": len(self.deck)
+            "total_damage": damage,
+            "cards_created": len(self.deck),
         }
