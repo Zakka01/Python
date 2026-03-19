@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
-from typing import Any
+from typing import Any, List, Dict, Union, Optional
 
-# Parent Class
+
 class DataProcessor(ABC):
 
 	@abstractmethod
@@ -11,16 +11,16 @@ class DataProcessor(ABC):
 	@abstractmethod
 	def validate(self, data: Any) -> bool:
 		pass
-	
+
 	def format_output(self, result: str) -> str:
 		return f"Output: {result}"
 
 
-# Child Class inherit from the Parent
-class NumericProcessor(DataProcessor):
-	def __init__(self):
-		print("Initializing Numeric Processor...")
 
+
+
+
+class NumericProcessor(DataProcessor):
 
 	def validate(self, data: Any) -> bool:
 		if isinstance(data, (int, float)):
@@ -48,14 +48,17 @@ class NumericProcessor(DataProcessor):
 
 		return f"Processed {n_len} numeric values, sum={n_sum}, avg={n_avg}"
 
+
 	def format_output(self, result: str) -> str:
 		return f"Output: {result}"
 
 
-# Child Class inherit from the Parent
+
+
+
+
+
 class TextProcessor(DataProcessor):
-    def __init__(self):
-        print("Initializing Text Processor...")
 
 
     def validate(self, data: Any) -> bool:
@@ -85,10 +88,13 @@ class TextProcessor(DataProcessor):
         return f"Output: {result}"
 
 
-# Child Class inherit from the Parent
+
+
+
+
+
+
 class LogProcessor(DataProcessor):
-	def __init__(self):
-		print("Initializing Log Processor...")
 
 
 	def validate(self, data: Any) -> bool:
@@ -124,63 +130,69 @@ class LogProcessor(DataProcessor):
 
 
 
+
+
+
+
+
+
+
 def main() -> None:
+
     print("=== CODE NEXUS - DATA PROCESSOR FOUNDATION ===\n")
     
-    num_data = [1, 2, 3, 4, 5]
-    numeric_processor = NumericProcessor()
-    print(f'Processing data: {num_data}')
+    data = [
+		[1, 2, 3, 4, 5],
+		"Hello Nexus World",
+		"ERROR: Connection timeout",
+	]
     
-    try:
-        output = numeric_processor.process(num_data)
-        print("Validation: Numeric data verified")
-        print(numeric_processor.format_output(output))
-    except ValueError as err:
-        print(f"Validation failed: {err}")
+    processors = [
+		NumericProcessor(),
+		TextProcessor(),
+		LogProcessor(),
+	]
     
+    init_head = [
+		"Initializing Numeric Processor...",
+		"Initializing Text Processor...",
+		"Initializing Log Processor...",
+	]
     
-    
-    print()
-    
-    
-    txt_data = "Hello Nexus World"
-    text_processor = TextProcessor()
-    print(f'Processing data: "{txt_data}"')
-	
-    try:
-        output = text_processor.process(txt_data)
-        print("Validation: Text data verified")
-        print(text_processor.format_output(output))
-    except ValueError as err:
-        print(f"Validation failed: {err}")
+    message = [
+		"Validation: Numeric data verified",
+		"Validation: Text data verified",
+		"Validation: Log entry verified",
+	]
+
+
+    for i in range(len(processors)):
+        print(init_head[i])
+        print(f'Processing data: {data[i]}')
+        try:
+            output = processors[i].process(data[i])
+            print(message[i])
+            print(processors[i].format_output(output))
+        except ValueError as err:
+            print(f"Validation failed: {err}")
         
-    
-    
-    
-    print()
-    
-    
-    log_data = "ERROR: Connection timeout"
-    log_processor = LogProcessor()
-    print(f'Processing data: "{log_data}"')
-    
-    try:
-        output = log_processor.process(log_data)
-        print("Validation: Log entry verified")
-        print(log_processor.format_output(output))
-    except ValueError as err:
-        print(f"Validation failed: {err}")
+        print()
 
     
+
     print("\n=== Polymorphic Processing Demo ===\n")
     
-    print("Processing multiple data types through same interface...")
-    print(f'Result 1: {numeric_processor.process([1, 2, 3])}')
-    print(f'Result 2: {text_processor.process("hello world")}')
-    print(f'Result 3: {log_processor.process("info: System ready")}')
+    data_test = [
+		[1, 2, 3],
+		"hello world!",
+		"info: System ready",
+	]
     
-    print()
-    print("Foundation systems online. Nexus ready for advanced streams.")
+    print("Processing multiple data types through same interface...")
+    for i in range(len(processors)):
+        print(f'Result {i+1}: {processors[i].process(data_test[i])}')
+    
+    print("\nFoundation systems online. Nexus ready for advanced streams.")
 
     
 
